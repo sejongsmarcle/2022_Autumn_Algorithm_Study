@@ -1,5 +1,7 @@
 # 2022_Fall_Algorithm_Study
 
+2022 2학기 SMARCLE 알고리즘 스터디 레포지토리
+
 # 스터디 목적
 
 - 코딩 테스트 준비
