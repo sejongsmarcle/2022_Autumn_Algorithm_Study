@@ -6,7 +6,7 @@
 
 ## 알고리즘
 * 선정팀: D팀
-- [1주차 알고리즘 링크](https://www.acmicpc.net/problem/2841)
+- [1주차 알고리즘: 외계인의 기타 연주](https://www.acmicpc.net/problem/2841)
 
 ## WBC(Weekly Best Code)
 * B팀 한규탁
