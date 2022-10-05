@@ -2,22 +2,43 @@ import heapq
 import sys
 #import numpy 
 
-N = int(sys.stdin.readline()) 
-max_heap = []
-min_heap = []
+N = int(sys.stdin.readline()) #N개의 줄
+heap = []
 
 for i in range(N):
-    x = int(sys.stdin.readline()) 
-    if i % 2 == 0:
-        heapq.heappush(max_heap, -x) #최대힙으로 저장
-    else: 
-        heapq.heappush(min_heap, x) #최소힙으로 저장
+     cardNum = int(sys.stdin.readline()) #카드 묶음 개수
+     heapq.heappush(heap, cardNum)
 
-    if max_heap and min_heap and -max_heap[0] > min_heap[0]:
-        max_heap_max = -heapq.heappop(max_heap)
-        min_heap_min = heapq.heappop(min_heap)
-        heapq.heappush(max_heap, -min_heap_min)
-        heapq.heappush(min_heap, max_heap_max)
-    if max_heap:
-        median = -max_heap[0]
-    print(median)
+comp = 0 #2개씩 비교할 때 비교 횟수
+compSum = 0 #최종 출력 값 (최소 비교 횟수)
+
+if N == 1:
+    compSum = 0 
+else:   
+    for i in range(N-1): #2개씩 비교하므로, 예를 들어 4개의 뭉치면 3번씩 비교하게 됨
+        comp = heapq.heappop(heap) #입력된 카드 뭉치의 개수 중 최솟값(5) 일단 out
+        if heap:  
+            comp += heapq.heappop(heap) #그 다음 두번째로 작은 값(6) out
+        #print(comp)
+
+        heapq.heappush(heap, comp) #비교횟수(5+6) 다시 힙에 push
+        compSum += comp #누적횟수에 비교횟수 추가
+    #print(heap)
+#print(heap)
+print(compSum)
+
+
+'''
+input example
+4
+5
+6
+7
+8
+
+4
+3
+3
+3
+3
+'''
